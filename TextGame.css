@@ -1,0 +1,102 @@
+body{
+    background-color: bisque !important;
+}
+button{
+    margin-top: 1% !important;
+    margin-bottom: 1% !important;
+    border-radius: 10px !important;
+    background: skyblue !important;
+}
+button:hover{
+    font-weight: bold;
+    background-color: rgb(46, 182, 236);
+}
+section{
+    text-align: center;
+    width: 50%;
+    float: left;
+    border: dotted black 2px;
+}
+form{
+    margin-top: 2%;
+}
+#StartMenu{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: block;
+}
+#StartButton{
+    height: 35px;
+    width: 140px;
+}
+#Game{
+    display: none;
+}
+#Navbar{
+    background-color: skyblue;
+}
+#navHome{
+    color: black;
+}
+#navSetting{
+    color: black;
+}
+#navAboutUs{
+    color: black;
+}
+#Home{
+    display: block;
+}
+#GameMenu{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+#Map{
+    display: none;
+}
+#Building{
+    display: none;
+}
+#Upgrade{
+    display: none;
+}
+#Shop{
+    display: none;
+}
+#Warehouse{
+    display: none;
+}
+#Setting{
+    text-align: center;
+    display: none;
+}
+#ShowUID,#ShowRestart,#ShowLoadInGame{
+    border: black dotted 2px;
+    width: 33%;
+    text-align: center;
+    transform: translate(100%, 50%);
+}
+#AboutUs{
+    text-align: center;
+    display: none;
+}
+.GameMenuButton{
+    font-size: large;
+    width: 33%;
+}
+.MapButton{
+    font-size: large;
+    width: 80%;
+}
+.Resource{
+    width: 50%;
+    float: left;
+}
+.WorkerMenu{
+    width: 50%;
+    float: left;
+}
