@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="TextGame.js"></script>
+    <link rel="stylesheet" href="TextGame.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Game</title>
+</head>
+<body>
+    <div id="StartMenu">
+        <h1><b>Welcome to The Game</b></h1>
+        <button id="StartButton" onclick="StartGame()">Start Game</button>
+        <form onsubmit="return false">
+            <label for="GameID"><b>Game ID: </b></label>
+            <input type="number" id="GameID" placeholder="ID Number">
+            <button id="LoadButton" onclick="Load()">Load</button>
+        </form>
+    </div>
+    <div id="Game">
+        <!-- Navbar -->
+        <ul class="nav justify-content-center nav-tabs" id="Navbar">
+            <li class="nav-item">
+                <button class="nav-link active" id="navHome" onclick="switchHome()">Home</button>
+            </li>     
+            <li class="nav-item">
+                <button class="nav-link" id="navSetting" onclick="switchSetting()">Setting</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="navAboutUs" onclick="switchAboutUs()">About Us</button>
+            </li> 
+        </ul>
+        <!-- Home -->
+        <div id="Home">
+            <div id="GameMenu">
+                <section>
+                    <div id="Map">
+                        <button class="MapButton" onclick="GetResource('Food')">Fruit Bushes<br>Food +1</button>
+                        <button class="MapButton" onclick="GetResource('Wood')">Forests<br>Wood +1</button>
+                        <button class="MapButton" onclick="GetResource('Rock')">Rock Mine<br>Rock +1</button>
+                    </div>
+                    <div id="Building">
+                        <div class="WorkerMenu">
+                            <h5>Worker</h5>
+                        </div>
+                        <div class="WorkerMenu">
+                            <span id="WorkerAmount">0</span>
+                            <button onclick="BuyWorker()">Buy</button>
+                        </div>
+                        <div>
+                            Farm (Producing <span id="FoodPers">0</span> Food Per Second)
+                            <button onclick="RemoveWorker('Food')">-</button>
+                            <span id="FoodWorker">0</span>
+                            <button onclick="AddWorker('Food')">+</button>
+                        </div>
+                        <div>
+                            Forests (Producing <span id="WoodPers">0</span> Wood Per Second)
+                            <button onclick="RemoveWorker('Wood')">-</button>
+                            <span id="WoodWorker">0</span>
+                            <button onclick="AddWorker('Wood')">+</button>
+                        </div>
+                        <div>
+                            Rock Mine (Producing <span id="RockPers">0</span> Rock Per Second)
+                            <button onclick="RemoveWorker('Rock')">-</button>
+                            <span id="RockMineWorker">0</span>
+                            <button onclick="AddWorker('Rock')">+</button>
+                        </div>
+                    </div>
+                    <div id="Shop">
+                        <p>
+                            10 gold to 1 food
+                            <button onclick="Exchange(10,'Gold','Food')">Buy</button>
+                        </p>
+                        <p>
+                            100 gold to 1 wood
+                            <button onclick="Exchange(100,'Gold','Wood')">Buy</button>
+                        </p>
+                        <p>
+                            1000 gold to 1 Rock
+                            <button onclick="Exchange(1000,'Gold','Wood')">Buy</button>
+                        </p>
+                        <p>
+                            1000 food to 1 gold
+                            <button onclick="Exchange(1000,'Food','Gold')">Buy</button>
+                        </p>
+                        <p>
+                            100 wood to 1 gold
+                            <button onclick="Exchange(100,'Wood','Gold')">Buy</button>
+                        </p>
+                        <p>
+                            10 Rock to 1 gold
+                            <button onclick="Exchange(10,'Rock','Gold')">Buy</button>
+                        </p>
+                    </div>
+                    <div id="Warehouse">
+                        <h5><b>Warehouse</b></h5>
+                        <p class="Resource">Gold</p>
+                        <p class="Resource" id="GoldNum">0</p>
+                        <p class="Resource">Food</p>
+                        <p class="Resource" id="FoodNum">0</p>
+                        <p class="Resource">Wood</p>
+                        <p class="Resource" id="WoodNum">0</p>
+                        <p class="Resource">Rock</p>
+                        <p class="Resource" id="RockNum">0</p>
+                    </div>
+                </section>
+                <section>
+                    <button class="GameMenuButton" onclick="Display('Map')">Map</button>
+                    <br>
+                    <button class="GameMenuButton" onclick="Display('Building')">Building</button>
+                    <br>
+                    <button class="GameMenuButton" onclick="Display('Shop')">Shop</button>
+                    <br>
+                    <button class="GameMenuButton" onclick="Display('Warehouse')">Warehouse</button>
+                    <br>
+                </section>
+            </div>
+        </div>
+        <!-- Setting -->
+        <div id="Setting">
+            <div id="ShowUID">
+                <h5><b>UID: <span id="UID"></span></b></h5>
+            </div>
+            <div id="ShowRestart">
+                <h5><b>Restart the Game</b></h5>
+                <button onclick="Restart()">Restart</button>
+            </div>
+            <div id="ShowLoadInGame">
+                <form onsubmit="return false">
+                    <h5><b>Load Game</b></h5>
+                    <label for="GameIDInGame"><b>Game ID: </b></label>
+                    <input type="number" id="GameIDInGame" placeholder="ID Number">
+                    <br>
+                    <button id="LoadButton" onclick="LoadInGame()">Load</button>
+                </form>
+            </div>
+        </div>
+        <!-- AboutUS -->
+        <div id="AboutUs">
+            <h1><b>Thanks for playing the Game</b></h1>
+            <p>This game is design for University at Bufaalo DMS321 Final Project</p>
+            <h5><b>Contact Information</b></h5>
+            <p>Weicheng Zhou<br>123-456-7890<br>example@buffalo.edu</p>
+            <p><b>Last Update:</b> 5/14/2023</p>
+        </div>
+    </div>
+</body>
+</html>
